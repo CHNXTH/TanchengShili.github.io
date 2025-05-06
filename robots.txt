@@ -1,0 +1,10 @@
+# robots.txt for 郯城十里村田园综合体
+
+User-agent: *
+Allow: /
+Disallow: /css/
+Disallow: /js/
+Disallow: /images/
+Disallow: /vr/panorama.html
+
+Sitemap: https://www.tanchengshilicun.com/sitemap.xml 
