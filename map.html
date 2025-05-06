@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地图导航 - 郯城十里村田园综合体</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="郯城十里村田园综合体" width="50" height="50">
+                    <span class="ms-2">郯城十里村田园综合体</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">首页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="map.html">地图导航</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="attractions.html">景区介绍</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="booking.html">订购服务</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="experiences.html">活动体验</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <div class="weather me-3">
+                            <i class="bi bi-cloud-sun"></i> <span id="temperature">25°C</span>
+                            <span id="weather-condition">晴</span>
+                        </div>
+                        <div class="search-box me-3">
+                            <input type="text" class="form-control" placeholder="搜索">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <a href="user.html" class="user-center">
+                            <i class="bi bi-person-circle"></i> 个人中心
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container py-5 mt-5">
+            <h1 class="section-title text-center mb-4">景区地图导航</h1>
+            <p class="text-center mb-5">探索郯城十里村田园综合体的各个景点，规划您的完美行程</p>
+            
+            <div class="row">
+                <!-- 地图显示区域 -->
+                <div class="col-lg-8">
+                    <div class="map-container" id="map"></div>
+                    <div class="map-controls mt-3 d-flex justify-content-between">
+                        <div class="map-layers">
+                            <button class="btn btn-sm btn-outline-secondary me-2" onclick="toggleMapLayer('satellite')">
+                                <i class="bi bi-layers"></i> 卫星图
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="toggleMapLayer('street')">
+                                <i class="bi bi-map"></i> 街道图
+                            </button>
+                        </div>
+                        <div class="map-tools">
+                            <button class="btn btn-sm btn-primary" onclick="locateUser()">
+                                <i class="bi bi-geo-alt"></i> 我的位置
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点列表 -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="bi bi-pin-map"></i> 景点列表</h4>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="poi-list">
+                                <div class="poi-item" data-id="1" data-lat="34.615" data-lng="118.350">
+                                    <h4>游客服务中心</h4>
+                                    <p>景区入口处，提供游客咨询、导游服务</p>
+                                </div>
+                                <div class="poi-item" data-id="2" data-lat="34.617" data-lng="118.353">
+                                    <h4>银杏柳陶坊</h4>
+                                    <p>体验传统陶艺制作，感受非遗文化</p>
+                                </div>
+                                <div class="poi-item" data-id="3" data-lat="34.618" data-lng="118.355">
+                                    <h4>汤泉白果洞</h4>
+                                    <p>天然温泉SPA，放松身心的绝佳去处</p>
+                                </div>
+                                <div class="poi-item" data-id="4" data-lat="34.619" data-lng="118.357">
+                                    <h4>观景台</h4>
+                                    <p>俯瞰整个田园风光的最佳位置</p>
+                                </div>
+                                <div class="poi-item" data-id="5" data-lat="34.616" data-lng="118.354">
+                                    <h4>生态农场</h4>
+                                    <p>体验采摘，了解有机种植过程</p>
+                                </div>
+                                <div class="poi-item" data-id="6" data-lat="34.614" data-lng="118.352">
+                                    <h4>垂钓区</h4>
+                                    <p>休闲垂钓，品尝新鲜鱼获</p>
+                                </div>
+                                <div class="poi-item" data-id="7" data-lat="34.613" data-lng="118.349">
+                                    <h4>水上婚礼举办区</h4>
+                                    <p>举办传统水上婚礼仪式的场所</p>
+                                </div>
+                                <div class="poi-item" data-id="8" data-lat="34.617" data-lng="118.348">
+                                    <h4>龙舟赛道</h4>
+                                    <p>传统龙舟竞赛场地</p>
+                                </div>
+                                <div class="poi-item" data-id="9" data-lat="34.620" data-lng="118.351">
+                                    <h4>田园餐厅</h4>
+                                    <p>提供当地特色农家菜肴</p>
+                                </div>
+                                <div class="poi-item" data-id="10" data-lat="34.621" data-lng="118.354">
+                                    <h4>民宿区</h4>
+                                    <p>特色农家住宿，体验乡村生活</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 路线规划 -->
+                    <div class="card mt-4">
+                        <div class="card-header bg-success text-white">
+                            <h4 class="mb-0"><i class="bi bi-signpost-split"></i> 路线规划</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="route-form">
+                                <div class="mb-3">
+                                    <label for="start-point" class="form-label">出发点</label>
+                                    <select class="form-select" id="start-point">
+                                        <option value="0">当前位置</option>
+                                        <option value="1">游客服务中心</option>
+                                        <option value="2">银杏柳陶坊</option>
+                                        <option value="3">汤泉白果洞</option>
+                                        <option value="4">观景台</option>
+                                        <option value="5">生态农场</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="end-point" class="form-label">目的地</label>
+                                    <select class="form-select" id="end-point">
+                                        <option value="1">游客服务中心</option>
+                                        <option value="2">银杏柳陶坊</option>
+                                        <option value="3">汤泉白果洞</option>
+                                        <option value="4">观景台</option>
+                                        <option value="5">生态农场</option>
+                                        <option value="6">垂钓区</option>
+                                        <option value="7">水上婚礼举办区</option>
+                                        <option value="8">龙舟赛道</option>
+                                        <option value="9">田园餐厅</option>
+                                        <option value="10">民宿区</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="transport-mode" class="form-label">出行方式</label>
+                                    <select class="form-select" id="transport-mode">
+                                        <option value="walking">步行</option>
+                                        <option value="cycling">自行车</option>
+                                        <option value="driving">景区观光车</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-success w-100" onclick="planRoute()">
+                                    <i class="bi bi-map"></i> 规划路线
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部导航 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>关于我们</h3>
+                    <p>郯城十里村田园综合体是集生态养殖、文旅康养、休闲体验、农业观光和住宿接待为一体的综合性田园项目。</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>联系方式</h3>
+                    <ul class="contact-info">
+                        <li><i class="bi bi-geo-alt"></i> 山东省临沂市郯城县十里村</li>
+                        <li><i class="bi bi-telephone"></i> 400-123-4567</li>
+                        <li><i class="bi bi-envelope"></i> info@tanchengtianyan.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-wechat"></i></a>
+                        <a href="#"><i class="bi bi-tencent-qq"></i></a>
+                        <a href="#"><i class="bi bi-sina-weibo"></i></a>
+                    </div>
+                    <div class="qrcode mt-3">
+                        <img src="images/qrcode.png" alt="扫码关注" width="120">
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center mt-4">
+                <p>© 2024 郯城十里村田园综合体 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/map.js"></script>
+</body>
+</html> 

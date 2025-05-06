@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动体验 - 郯城十里村田园综合体</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="郯城十里村田园综合体" width="50" height="50">
+                    <span class="ms-2">郯城十里村田园综合体</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">首页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="map.html">地图导航</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="attractions.html">景区介绍</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="booking.html">订购服务</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="experiences.html">活动体验</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <div class="weather me-3">
+                            <i class="bi bi-cloud-sun"></i> <span id="temperature">25°C</span>
+                            <span id="weather-condition">晴</span>
+                        </div>
+                        <div class="search-box me-3">
+                            <input type="text" class="form-control" placeholder="搜索">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <a href="user.html" class="user-center">
+                            <i class="bi bi-person-circle"></i> 个人中心
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container py-5 mt-5">
+            <h1 class="section-title text-center mb-4">特色活动体验</h1>
+            <p class="text-center mb-5">在十里村田园综合体，体验最具特色的农耕文化和乡村风情活动</p>
+            
+            <!-- 导航标签 -->
+            <ul class="nav nav-pills mb-5 justify-content-center" id="experienceTab">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#all">全部活动</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#culture">文化体验</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#leisure">休闲娱乐</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#eco">生态农业</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#wellness">康养休闲</a>
+                </li>
+            </ul>
+            
+            <!-- 各活动体验详情 -->
+            <div class="experiences-list">
+                <!-- 银杏柳陶坊 -->
+                <div class="experience-card" id="pottery">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="experience-image">
+                                <img src="images/pottery.jpg" alt="银杏柳陶坊" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="experience-details">
+                                <h3>银杏柳陶坊 - 非遗陶艺体验</h3>
+                                <div class="experience-meta">
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>约2小时</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-people"></i>
+                                        <span>适合所有年龄</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-calendar-check"></i>
+                                        <span>每日9:00-17:00</span>
+                                    </div>
+                                </div>
+                                <p>银杏柳陶坊传承了数百年的传统制陶工艺，由本地非遗传承人指导，让您近距离体验陶艺的魅力。在这里，您可以亲手捏制、拉坯、雕刻、上釉，感受传统手工艺的精妙之处。</p>
+                                <ul>
+                                    <li>提供专业陶艺老师一对一指导</li>
+                                    <li>可带走自己制作的作品成品（烧制后邮寄）</li>
+                                    <li>了解陶瓷制作的全过程</li>
+                                    <li>欣赏传统民间陶艺精品展示</li>
+                                </ul>
+                                <div class="experience-cta">
+                                    <div class="experience-price">
+                                        ¥158/人
+                                    </div>
+                                    <a href="booking.html#craft" class="btn btn-primary">立即预订</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 汤泉白果洞 -->
+                <div class="experience-card" id="hotspring">
+                    <div class="row">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="experience-image">
+                                <img src="images/hotspring.jpg" alt="汤泉白果洞" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="experience-details">
+                                <h3>汤泉白果洞 - 天然温泉体验</h3>
+                                <div class="experience-meta">
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>不限时</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-people"></i>
+                                        <span>适合成人和儿童</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-calendar-check"></i>
+                                        <span>每日10:00-22:00</span>
+                                    </div>
+                                </div>
+                                <p>汤泉白果洞是以天然矿物质温泉著称的休闲胜地，泉水富含多种矿物质和微量元素，对皮肤和健康有显著益处。多个不同主题的温泉池让您尽享舒适放松的沐浴体验。</p>
+                                <ul>
+                                    <li>10个不同温度和功效的温泉池</li>
+                                    <li>室内外温泉相结合，四季可泡</li>
+                                    <li>提供专业SPA和按摩服务（额外收费）</li>
+                                    <li>配套休息区和餐饮服务</li>
+                                </ul>
+                                <div class="experience-cta">
+                                    <div class="experience-price">
+                                        ¥198/人
+                                    </div>
+                                    <a href="booking.html#spa" class="btn btn-primary">立即预订</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 生态采钓体验 -->
+                <div class="experience-card" id="fishing">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="experience-image">
+                                <img src="images/fishing.jpg" alt="生态采钓体验" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="experience-details">
+                                <h3>生态采钓体验</h3>
+                                <div class="experience-meta">
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>约3小时</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-people"></i>
+                                        <span>适合所有年龄</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-calendar-check"></i>
+                                        <span>每日7:00-18:00</span>
+                                    </div>
+                                </div>
+                                <p>在十里村的生态鱼塘中，体验原生态的垂钓乐趣。这里的鱼塘采用纯净水源和生态养殖方式，鱼获新鲜健康。不论您是垂钓高手还是初学者，都能获得满意的体验。</p>
+                                <ul>
+                                    <li>提供专业渔具和饵料</li>
+                                    <li>专人指导钓鱼技巧</li>
+                                    <li>现场加工烹饪钓获（额外收费）</li>
+                                    <li>可带走自己的鱼获（5斤内免费）</li>
+                                </ul>
+                                <div class="experience-cta">
+                                    <div class="experience-price">
+                                        ¥128/人
+                                    </div>
+                                    <a href="booking.html#fishing" class="btn btn-primary">立即预订</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 传统水上婚礼 -->
+                <div class="experience-card" id="wedding">
+                    <div class="row">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="experience-image">
+                                <img src="images/wedding.jpg" alt="传统水上婚礼" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="experience-details">
+                                <h3>传统水上婚礼</h3>
+                                <div class="experience-meta">
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>约4小时</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-people"></i>
+                                        <span>婚礼定制服务</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-calendar-check"></i>
+                                        <span>需提前30天预约</span>
+                                    </div>
+                                </div>
+                                <p>十里村传统水上婚礼是当地流传百年的特色习俗，新人乘坐装饰精美的花船，在传统乐器伴奏下举行隆重而浪漫的仪式。这是一场融合了传统文化与现代婚礼元素的独特体验。</p>
+                                <ul>
+                                    <li>传统花船及装饰</li>
+                                    <li>传统婚礼服装和装扮</li>
+                                    <li>专业摄影摄像服务</li>
+                                    <li>传统婚宴（可选，另计费）</li>
+                                </ul>
+                                <div class="experience-cta">
+                                    <div class="experience-price">
+                                        ¥9800/场起
+                                    </div>
+                                    <a href="booking.html#wedding" class="btn btn-primary">立即预订</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 龙舟比赛 -->
+                <div class="experience-card" id="dragonboat">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="experience-image">
+                                <img src="images/dragonboat.jpg" alt="龙舟比赛" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="experience-details">
+                                <h3>龙舟竞赛体验</h3>
+                                <div class="experience-meta">
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span>约2小时</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-people"></i>
+                                        <span>适合12岁以上</span>
+                                    </div>
+                                    <div class="experience-meta-item">
+                                        <i class="bi bi-calendar-check"></i>
+                                        <span>每日10:00, 14:00</span>
+                                    </div>
+                                </div>
+                                <p>体验中国传统龙舟文化，参与紧张刺激的竞速比赛。在教练的指导下，您将学习基本的划桨技巧和团队协作方法，然后与其他游客组队进行友谊赛。这是一项既能锻炼身体又富有文化内涵的活动。</p>
+                                <ul>
+                                    <li>专业教练指导</li>
+                                    <li>所有安全装备提供</li>
+                                    <li>分组比赛，颁发纪念奖牌</li>
+                                    <li>适合企业团建和家庭活动</li>
+                                </ul>
+                                <div class="experience-cta">
+                                    <div class="experience-price">
+                                        ¥98/人（团队优惠）
+                                    </div>
+                                    <a href="booking.html#dragonboat" class="btn btn-primary">立即预订</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 底部导航 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>关于我们</h3>
+                    <p>郯城十里村田园综合体是集生态养殖、文旅康养、休闲体验、农业观光和住宿接待为一体的综合性田园项目。</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>联系方式</h3>
+                    <ul class="contact-info">
+                        <li><i class="bi bi-geo-alt"></i> 山东省临沂市郯城县十里村</li>
+                        <li><i class="bi bi-telephone"></i> 400-123-4567</li>
+                        <li><i class="bi bi-envelope"></i> info@tanchengtianyan.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-wechat"></i></a>
+                        <a href="#"><i class="bi bi-tencent-qq"></i></a>
+                        <a href="#"><i class="bi bi-sina-weibo"></i></a>
+                    </div>
+                    <div class="qrcode mt-3">
+                        <img src="images/qrcode.png" alt="扫码关注" width="120">
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center mt-4">
+                <p>© 2024 郯城十里村田园综合体 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // 活动分类筛选
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('#experienceTab .nav-link');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 移除所有激活状态
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // 添加当前激活状态
+                    this.classList.add('active');
+                    
+                    // 获取类别
+                    const category = this.getAttribute('href').substring(1);
+                    
+                    // 显示/隐藏相应内容
+                    const cards = document.querySelectorAll('.experience-card');
+                    
+                    if (category === 'all') {
+                        cards.forEach(card => {
+                            card.style.display = 'block';
+                        });
+                    } else {
+                        cards.forEach(card => {
+                            if (card.classList.contains(category)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,577 @@
+/* 全局样式 */
+:root {
+    --primary-color: #3a8238;
+    --secondary-color: #f8f9fa;
+    --accent-color: #ff7f00;
+    --text-color: #333;
+    --light-color: #fff;
+    --border-color: #e1e1e1;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: "Microsoft YaHei", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #2c6329;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #2c6329;
+    border-color: #2c6329;
+}
+
+.btn-success {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-success:hover {
+    background-color: #2c6329;
+    border-color: #2c6329;
+}
+
+.btn-outline-success {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* 导航栏样式 */
+.navbar {
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem 1.2rem;
+    color: var(--text-color);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--primary-color);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.weather i {
+    margin-right: 0.3rem;
+    color: var(--accent-color);
+}
+
+.search-box {
+    position: relative;
+    width: 200px;
+}
+
+.search-box input {
+    padding-right: 2rem;
+    border-radius: 20px;
+}
+
+.search-box i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.user-center {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.user-center i {
+    margin-right: 0.3rem;
+    font-size: 1.2rem;
+}
+
+/* 主视觉区域 */
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 70px;
+}
+
+.hero-content {
+    color: white;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 特色小镇 */
+.features {
+    padding: 5rem 0;
+    background-color: var(--secondary-color);
+}
+
+.feature-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.feature-content {
+    padding: 1.5rem;
+}
+
+.feature-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+.feature-content p {
+    margin-bottom: 1.2rem;
+    color: #666;
+}
+
+/* 最新活动 */
+.activities {
+    padding: 5rem 0;
+}
+
+.activity-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
+.activity-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.activity-content {
+    padding: 1.2rem;
+}
+
+.activity-content h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.activity-content p {
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.price {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* 航拍VR区域 */
+.vr-section {
+    padding: 5rem 0;
+    background-color: var(--secondary-color);
+}
+
+.vr-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+/* 底部导航 */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info li i {
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 0.8rem;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    color: #aaa;
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
+    .navbar-nav {
+        margin: 1rem 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-section {
+        height: 60vh;
+    }
+    
+    .feature-card img,
+    .activity-card img {
+        height: 180px;
+    }
+}
+
+/* 地图导航页样式 */
+.map-container {
+    height: 70vh;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.poi-list {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.poi-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.poi-item:hover {
+    background-color: rgba(58, 130, 56, 0.1);
+}
+
+.poi-item.active {
+    background-color: rgba(58, 130, 56, 0.2);
+    border-left: 3px solid var(--primary-color);
+}
+
+.poi-item h4 {
+    margin-bottom: 0.3rem;
+    color: var(--primary-color);
+}
+
+.poi-item p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 景区介绍页样式 */
+.attraction-card {
+    margin-bottom: 3rem;
+}
+
+.attraction-card img {
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.attraction-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* 订购服务页样式 */
+.booking-tabs {
+    margin-bottom: 2rem;
+}
+
+.booking-tabs .nav-link {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+}
+
+.booking-tabs .nav-link.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.room-card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.room-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.room-card-body {
+    padding: 1.5rem;
+}
+
+.room-card-body h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.room-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.room-amenities span {
+    background-color: rgba(58, 130, 56, 0.1);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.room-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+/* 活动体验页样式 */
+.experience-card {
+    margin-bottom: 4rem;
+}
+
+.experience-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.experience-details h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.experience-meta {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.experience-meta-item {
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.experience-meta-item i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.experience-cta {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.experience-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+/* 表单样式 */
+.form-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(58, 130, 56, 0.25);
+}
+
+/* VR全景页样式 */
+.vr-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.vr-item {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.vr-item:hover {
+    transform: translateY(-5px);
+}
+
+.vr-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.vr-item-content {
+    padding: 1.2rem;
+    background-color: white;
+}
+
+.vr-item-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.vr-panorama-container {
+    height: 85vh;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+} 
