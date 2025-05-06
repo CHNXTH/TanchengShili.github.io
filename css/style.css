@@ -10,7 +10,7 @@
 }
 
 body {
-    font-family: "Microsoft YaHei", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "PingFang SC", "SF Pro SC", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
@@ -574,4 +574,165 @@ footer h3 {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow);
+}
+
+/* 订购服务页面样式 */
+.hero-banner {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    color: white;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+    z-index: 0;
+}
+
+.hero-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+.room-card, .activity-card {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.room-card:hover, .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.room-card img, .activity-card img {
+    height: 220px;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.room-card:hover img, .activity-card:hover img {
+    transform: scale(1.05);
+}
+
+.room-price, .activity-price {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.room-features, .activity-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.activity-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.booking-form, .activity-booking-form, .restaurant-booking-form {
+    transition: all 0.3s ease;
+}
+
+.selected-room, .selected-activity {
+    border-left: 4px solid var(--primary-color);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.menu-category-title {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.menu-item {
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.restaurant-features {
+    color: var(--text-color);
+}
+
+/* 条款模态框样式 */
+.modal-content {
+    border: none;
+    border-radius: 15px;
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.modal-body {
+    padding: 1rem 1.5rem;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+
+/* 预订确认信息样式 */
+.booking-confirmation, .restaurant-confirmation {
+    transition: all 0.3s ease;
+}
+
+/* 日期选择器自定义样式 */
+input[type="date"] {
+    cursor: pointer;
+}
+
+/* 响应式调整 */
+@media (max-width: 767px) {
+    .hero-banner {
+        height: 60vh;
+    }
+    
+    .hero-banner h1 {
+        font-size: 2rem;
+    }
+    
+    .room-card, .activity-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .room-features, .activity-features {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .room-features .badge, .activity-features .badge {
+        margin-bottom: 0.3rem;
+    }
 } 

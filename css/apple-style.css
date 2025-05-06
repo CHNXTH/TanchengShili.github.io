@@ -1,0 +1,630 @@
+/* 苹果风格的CSS样式 */
+
+/* 基础样式重置 */
+:root {
+    --apple-primary: #0071e3;
+    --apple-dark: #1d1d1f;
+    --apple-light: #f5f5f7;
+    --apple-gray: #86868b;
+    --apple-white: #ffffff;
+    --apple-gradient: linear-gradient(135deg, #0071e3, #42a1ec);
+    --apple-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --apple-radius: 12px;
+    --transition-slow: all 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+    --transition-fast: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+body {
+    font-family: "PingFang SC", "SF Pro SC", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: var(--apple-dark);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* 毛玻璃效果导航栏 */
+.glassmorphism-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: var(--transition-fast);
+}
+
+.glassmorphism-header .navbar {
+    padding: 0.9rem 0;
+    transition: var(--transition-fast);
+}
+
+.glassmorphism-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.glassmorphism-header.scrolled .navbar {
+    padding: 0.5rem 0;
+}
+
+.glassmorphism-header .navbar-brand {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.glassmorphism-header .nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    color: var(--apple-dark);
+    opacity: 0.8;
+    transition: var(--transition-fast);
+}
+
+.glassmorphism-header .nav-link:hover,
+.glassmorphism-header .nav-link.active {
+    opacity: 1;
+    color: var(--apple-primary);
+}
+
+/* 按钮样式 */
+.btn {
+    font-weight: 500;
+    border-radius: 980px;
+    padding: 0.6rem 1.5rem;
+    transition: var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--apple-primary);
+    border-color: var(--apple-primary);
+}
+
+.btn-primary:hover {
+    background-color: #0062c3;
+    border-color: #0062c3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 113, 227, 0.4);
+}
+
+.btn-light {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-color: transparent;
+    color: var(--apple-dark);
+}
+
+.btn-light:hover {
+    background-color: var(--apple-white);
+    color: var(--apple-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+    border-color: var(--apple-primary);
+    color: var(--apple-primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--apple-primary);
+    border-color: var(--apple-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
+}
+
+.btn-link {
+    color: var(--apple-primary);
+    text-decoration: none;
+    padding: 0;
+    font-weight: 500;
+}
+
+.btn-link:hover {
+    color: #0062c3;
+    text-decoration: none;
+}
+
+.btn-link:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background: var(--apple-primary);
+    transition: width 0.3s;
+}
+
+.btn-link:hover:after {
+    width: 100%;
+}
+
+/* 段落间距和排版 */
+.py-6 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.min-vh-70 {
+    min-height: 70vh;
+}
+
+.display-2 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.display-4 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.display-5 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.lead {
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+/* 英雄横幅样式 - 苹果风格 */
+.hero-banner {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 150px 0 100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-banner:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
+    z-index: 0;
+}
+
+.hero-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-banner h1 {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 1s 0.3s both;
+}
+
+.hero-banner p {
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s 0.6s both;
+}
+
+.hero-banner .btn {
+    animation: fadeInUp 1s 0.9s both;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 滚动指示器 */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid white;
+    border-radius: 13px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: white;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: wheel 1.5s infinite;
+}
+
+.scroll-indicator .chevron {
+    width: 30px;
+    height: 30px;
+    color: white;
+    stroke-width: 2px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes wheel {
+    0% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(15px);
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+        transform: scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(0.95);
+    }
+}
+
+/* 信息卡片 - 苹果风格 */
+.info-card {
+    background-color: var(--apple-white);
+    border-radius: var(--apple-radius);
+    padding: 2rem;
+    display: flex;
+    align-items: flex-start;
+    box-shadow: var(--apple-shadow);
+    transition: var(--transition-fast);
+    height: 100%;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.info-card-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--apple-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.info-card-icon i {
+    font-size: 1.8rem;
+}
+
+.info-card-text {
+    flex-grow: 1;
+}
+
+.info-card-text h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    color: var(--apple-dark);
+}
+
+.info-card-text p {
+    color: var(--apple-gray);
+    margin-bottom: 0;
+}
+
+/* 特性列表 */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list li i {
+    color: var(--apple-primary);
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+/* 特性部分 - 苹果风格 */
+.feature-section {
+    padding: 3rem 0;
+}
+
+.feature-section h3 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.feature-section p {
+    color: var(--apple-gray);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.img-cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* 全景容器 */
+.panorama-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--apple-radius);
+    box-shadow: var(--apple-shadow);
+}
+
+.panorama-btn {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 2;
+}
+
+/* 活动预览卡片 - 苹果风格 */
+.activity-preview-card {
+    transition: var(--transition-fast);
+    border-radius: var(--apple-radius);
+    overflow: hidden;
+    border: none;
+    box-shadow: var(--apple-shadow);
+}
+
+.activity-preview-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.activity-preview-card .card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.activity-preview-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.activity-preview-card .card-body {
+    padding: 1.5rem;
+}
+
+.activity-preview-card .card-title {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.activity-preview-card .card-text {
+    color: var(--apple-gray);
+    margin-bottom: 1rem;
+}
+
+/* 渐变背景 */
+.bg-gradient {
+    background: linear-gradient(135deg, #0071e3, #42a1ec);
+}
+
+/* 圆角 */
+.rounded-4 {
+    border-radius: 1rem !important;
+}
+
+/* 透明度类 */
+.opacity-90 {
+    opacity: 0.9;
+}
+
+.opacity-75 {
+    opacity: 0.75;
+}
+
+/* 动画效果 */
+[data-aos] {
+    pointer-events: none;
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+/* 苹果风格卡片 */
+.room-card, .activity-card {
+    border: none;
+    border-radius: var(--apple-radius);
+    overflow: hidden;
+    box-shadow: var(--apple-shadow);
+    transition: var(--transition-fast);
+}
+
+.room-card:hover, .activity-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.room-card .card-img-top, .activity-card .card-img-top {
+    transition: transform 0.5s ease;
+}
+
+.room-card:hover .card-img-top, .activity-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+.card-text {
+    color: var(--apple-gray);
+    line-height: 1.6;
+}
+
+/* 响应式调整 */
+@media (max-width: 991.98px) {
+    .display-2 {
+        font-size: 3rem;
+    }
+    
+    .display-4 {
+        font-size: 2.2rem;
+    }
+    
+    .display-5 {
+        font-size: 1.8rem;
+    }
+    
+    .feature-section .col-lg-6:first-child {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .display-2 {
+        font-size: 2.5rem;
+    }
+    
+    .display-4 {
+        font-size: 1.8rem;
+    }
+    
+    .display-5 {
+        font-size: 1.5rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    .info-card {
+        flex-direction: column;
+    }
+    
+    .info-card-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* 滚动平滑 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 表单控件苹果风格 */
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 1px solid #d2d2d7;
+    padding: 0.7rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--apple-primary);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--apple-dark);
+    margin-bottom: 0.5rem;
+}
+
+/* 苹果风格模态框 */
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+} 

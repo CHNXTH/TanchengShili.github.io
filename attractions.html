@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景区介绍 - 郯城十里村田园综合体</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/apple-style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+    <!-- 毛玻璃导航栏 -->
+    <header class="glassmorphism-header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="郯城十里村田园综合体" width="50" height="50" onerror="this.src='https://via.placeholder.com/50'">
+                    <span class="ms-2">郯城十里村田园综合体</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">首页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="attractions.html">景区介绍</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="experiences.html">活动体验</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="map.html">地图导航</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="booking.html">订购服务</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <div class="weather me-3">
+                            <i class="bi bi-cloud-sun"></i> <span id="temperature">25°C</span>
+                            <span id="weather-condition">晴</span>
+                        </div>
+                        <div class="search-box me-3">
+                            <input type="text" class="form-control" placeholder="搜索">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <a href="user.html" class="user-center">
+                            <i class="bi bi-person-circle"></i> 个人中心
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主视觉区域 -->
+    <section class="hero-banner" style="background-image: url('https://gips0.baidu.com/it/u=1232240628,1396562423&fm=3074&app=3074&f=JPEG?w=750&h=500&type=normal&func='), url('https://gips0.baidu.com/it/u=1232240628,1396562423&fm=3074&app=3074&f=JPEG?w=750&h=500&type=normal&func=');">
+        <div class="container">
+            <div class="row align-items-center min-vh-70">
+                <div class="col-lg-8 text-center text-lg-start" data-aos="fade-right">
+                    <h1 class="display-2 fw-bold text-white mb-4">田园生活新范本</h1>
+                    <p class="lead text-white mb-5 opacity-90">融合生态养殖、文旅康养、休闲体验、农业观光与住宿接待于一体的综合性田园文旅综合体</p>
+                    <a href="#overview" class="btn btn-lg btn-light px-5 py-3 rounded-pill fw-semibold">
+                        探索景区 <i class="bi bi-arrow-down ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景区总览 -->
+    <section id="overview" class="py-6 bg-white">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">景区概览</h2>
+                    <p class="lead text-secondary mb-0" data-aos="fade-up" data-aos-delay="100">
+                        以生态为基底，文化为灵魂，康养为特色，休闲为核心
+                    </p>
+                </div>
+            </div>
+            
+            <div class="panorama-container mb-5" data-aos="zoom-in">
+                <img src="images/vr/vr-1.png" alt="郯城十里村全景图" class="img-fluid rounded-4 shadow-lg" onerror="this.src='https://via.placeholder.com/1600x500?text=郯城十里村全景图'">
+                <a href="vr/index.html" class="btn btn-primary btn-lg panorama-btn">
+                    <i class="bi bi-badge-vr-fill me-2"></i> 360°全景体验
+                </a>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 mb-4" data-aos="fade-up">
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="bi bi-tree-fill"></i>
+                        </div>
+                        <div class="info-card-text">
+                            <h3>生态为基底</h3>
+                            <p>景区南侧沿河打造滨水景观带与开放式景观公园，营造亲水空间；通过银杏景观大道与银杏水系有机串联，构建生态循环系统。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="bi bi-book-half"></i>
+                        </div>
+                        <div class="info-card-text">
+                            <h3>文化为灵魂</h3>
+                            <p>融合银杏风情、非遗文化与特色民宿，展现田园与传统文化的融合之美；游客可参与龙舟竞赛、传统婚礼等沉浸式文化活动。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="bi bi-heart-pulse-fill"></i>
+                        </div>
+                        <div class="info-card-text">
+                            <h3>康养为特色</h3>
+                            <p>"汤泉白果涧"温泉小镇，结合银杏主题、康养温泉与精品民宿，打造养身养心的静谧疗愈空间；北侧"公孙憩园居"以"银杏+养老"为主题。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="bi bi-sunset-fill"></i>
+                        </div>
+                        <div class="info-card-text">
+                            <h3>休闲为核心</h3>
+                            <p>设有多个生态养殖与垂钓体验区域，丰富游客互动体验；"秋韵钓采湾"集教育体验、水上乐园站点与"鱼类王国"展示于一体。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景区分区介绍 -->
+    <section class="py-6 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">景区分区</h2>
+                    <p class="lead text-secondary" data-aos="fade-up" data-aos-delay="100">
+                        各功能板块相互贯通，串点成线、连线成面，构建出一个复合型田园文旅目的地
+                    </p>
+                </div>
+            </div>
+
+            <!-- 千扇迎宾肆区域 -->
+            <div class="feature-section mb-6" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg">
+                            <img src="https://img2.baidu.com/it/u=261630782,4274611269&fm=253&fmt=auto&app=120&f=JPEG?w=751&h=500" alt="千扇迎宾肆" class="img-cover" onerror="this.src='https://via.placeholder.com/800x450?text=千扇迎宾肆'">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="display-5 fw-bold mb-4">千扇迎宾肆</h3>
+                        <p class="lead mb-4">景区西侧设有"千扇迎宾肆"作为主入口区域，集游客中心与游船登船口于一体，形成开放迎宾门户。</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> 游客服务中心</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 游船登船口</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 开放迎宾门户</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 导游服务点</li>
+                        </ul>
+                        <a href="map.html" class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3">查看地图位置</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 银杏柳旋坊区域 -->
+            <div class="feature-section mb-6" data-aos="fade-up">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg">
+                            <img src="https://img1.baidu.com/it/u=802687201,163008892&fm=253&fmt=auto&app=120&f=JPEG?w=749&h=500" alt="银杏柳旋坊" class="img-cover" onerror="this.src='https://via.placeholder.com/800x450?text=银杏柳旋坊'">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="badge bg-primary rounded-pill px-3 py-2 mb-3">核心亮点区域</span>
+                        <h3 class="display-5 fw-bold mb-4">银杏柳旋坊</h3>
+                        <p class="lead mb-4">融合银杏风情、非遗文化与特色民宿，展现田园与传统文化的融合之美，是体验传统工艺与乡村生活的理想场所。</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> 非遗文化展示馆</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 传统陶艺制作体验</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 银杏主题景观</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 特色民宿区</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="experiences.html#pottery" class="btn btn-primary rounded-pill px-4 py-2 me-3">体验陶艺</a>
+                            <a href="map.html" class="btn btn-outline-primary rounded-pill px-4 py-2">查看地图位置</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 汤泉白果涧区域 -->
+            <div class="feature-section mb-6" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg">
+                            <img src="https://gips0.baidu.com/it/u=1232240628,1396562423&fm=3074&app=3074&f=JPEG?w=750&h=500&type=normal&func=" alt="汤泉白果涧" class="img-cover" onerror="this.src='https://via.placeholder.com/800x450?text=汤泉白果涧'">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="badge bg-primary rounded-pill px-3 py-2 mb-3">核心亮点区域</span>
+                        <h3 class="display-5 fw-bold mb-4">汤泉白果涧</h3>
+                        <p class="lead mb-4">结合银杏主题、康养温泉与精品民宿，打造养身养心的静谧疗愈空间，为游客提供放松身心的绝佳体验。</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> 天然矿物质温泉</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 多个主题温泉池</li>
+                            <li><i class="bi bi-check-circle-fill"></i> SPA水疗中心</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 精品康养民宿</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="experiences.html#hotspring" class="btn btn-primary rounded-pill px-4 py-2 me-3">温泉体验</a>
+                            <a href="map.html" class="btn btn-outline-primary rounded-pill px-4 py-2">查看地图位置</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 秋韵钓采湾区域 -->
+            <div class="feature-section mb-6" data-aos="fade-up">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg">
+                            <img src="https://gbres.dfcfw.com/Files/iimage/20241209/A267EBC60AB6F5BD6546C1991FCAD788_w3697h2165.jpg" alt="秋韵钓采湾" class="img-cover" onerror="this.src='https://via.placeholder.com/800x450?text=秋韵钓采湾'">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="display-5 fw-bold mb-4">秋韵钓采湾</h3>
+                        <p class="lead mb-4">集教育体验、水上乐园站点与"鱼类王国"展示于一体，是亲子互动与自然科普的理想场所。</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> 生态垂钓体验</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 鱼类科普展示</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 水上乐园活动</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 亲子互动区域</li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="experiences.html#fishing" class="btn btn-primary rounded-pill px-4 py-2 me-3">垂钓体验</a>
+                            <a href="map.html" class="btn btn-outline-primary rounded-pill px-4 py-2">查看地图位置</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 公孙憩园居区域 -->
+            <div class="feature-section" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg">
+                            <img src="https://img2.baidu.com/it/u=795901181,3550454351&fm=253&fmt=auto&app=120&f=JPEG?w=750&h=500" alt="公孙憩园居" class="img-cover" onerror="this.src='https://via.placeholder.com/800x450?text=公孙憩园居'">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="display-5 fw-bold mb-4">公孙憩园居</h3>
+                        <p class="lead mb-4">以"银杏+养老"为主题，配套康复花园、基础医疗、停车服务等设施，满足康养人群的休闲与生活需求。</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle-fill"></i> 康复花园</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 银杏主题养老区</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 医疗健康服务</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 私密休闲空间</li>
+                        </ul>
+                        <a href="map.html" class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3">查看地图位置</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活动体验预览 -->
+    <section class="py-6 bg-white">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">特色活动</h2>
+                    <p class="lead text-secondary mb-0" data-aos="fade-up" data-aos-delay="100">
+                        在十里村田园综合体，体验原真乡韵与文化魅力
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card activity-preview-card h-100 border-0 shadow-sm">
+                        <img src="https://q6.itc.cn/images01/20241110/7b3b52cacae944c9b51cda54880e2829.jpeg" class="card-img-top" alt="龙舟竞赛" onerror="this.src='https://via.placeholder.com/800x600?text=龙舟竞赛'">
+                        <div class="card-body">
+                            <h4 class="card-title">龙舟竞赛</h4>
+                            <p class="card-text">体验中国传统龙舟文化，在教练指导下学习划桨技巧和团队协作，参与紧张刺激的竞速比赛。</p>
+                            <a href="experiences.html#dragonboat" class="btn btn-link stretched-link">了解更多 <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card activity-preview-card h-100 border-0 shadow-sm">
+                        <img src="https://www.newskj.com/pic/003/003/985/00300398555_cf6dc6d4.jpg" class="card-img-top" alt="传统水上婚礼" onerror="this.src='https://via.placeholder.com/800x600?text=传统水上婚礼'">
+                        <div class="card-body">
+                            <h4 class="card-title">传统水上婚礼</h4>
+                            <p class="card-text">新人乘坐装饰精美的花船，在传统乐器伴奏下举行隆重而浪漫的仪式，体验当地流传百年的特色习俗。</p>
+                            <a href="experiences.html#wedding" class="btn btn-link stretched-link">了解更多 <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card activity-preview-card h-100 border-0 shadow-sm">
+                        <img src="https://img1.baidu.com/it/u=1004464487,4126696574&fm=253&fmt=auto&app=138&f=JPEG?w=749&h=500" class="card-img-top" alt="农耕体验" onerror="this.src='https://via.placeholder.com/800x600?text=农耕体验'">
+                        <div class="card-body">
+                            <h4 class="card-title">农耕体验</h4>
+                            <p class="card-text">参与农田互动，体验传统农耕文化，了解从播种到收获的全过程，感受与土地亲密接触的乐趣。</p>
+                            <a href="experiences.html" class="btn btn-link stretched-link">了解更多 <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="experiences.html" class="btn btn-lg btn-primary rounded-pill px-5 py-3">
+                    探索全部活动 <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订购体验 -->
+    <section class="py-6 bg-primary bg-gradient text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center" data-aos="zoom-in">
+                    <h2 class="display-4 fw-bold mb-4">开启您的田园体验之旅</h2>
+                    <p class="lead opacity-90 mb-5">预订我们的精品住宿或特色活动，体验农旅融合的田园生活新方式</p>
+                    <a href="booking.html" class="btn btn-lg btn-light rounded-pill px-5 py-3 fw-semibold">
+                        立即预订 <i class="bi bi-arrow-right-circle-fill ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部导航 -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3 class="h5 mb-4 fw-bold">关于我们</h3>
+                    <p class="mb-4 opacity-75">郯城十里村田园综合体是集生态养殖、文旅康养、休闲体验、农业观光和住宿接待为一体的综合性田园项目。</p>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="bi bi-wechat"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-tencent-qq"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-sina-weibo"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h3 class="h5 mb-4 fw-bold">联系方式</h3>
+                    <ul class="contact-info list-unstyled">
+                        <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 山东省临沂市郯城县十里村</li>
+                        <li class="mb-3"><i class="bi bi-telephone me-2"></i> 400-123-4567</li>
+                        <li class="mb-3"><i class="bi bi-envelope me-2"></i> info@tanchengtianyan.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h3 class="h5 mb-4 fw-bold">关注我们</h3>
+                    <p class="mb-3 opacity-75">扫描下方二维码，获取更多景区信息</p>
+                    <div class="qrcode">
+                        <img src="images/qrcode.png" alt="扫码关注" width="120" class="img-fluid" onerror="this.src='https://via.placeholder.com/120?text=扫码关注'">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-4 pt-4 border-top border-secondary opacity-75">
+                <p class="mb-0">© 2024 郯城十里村田园综合体 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // 初始化AOS动画库
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // 页面滚动时添加背景
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.glassmorphism-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 滚动指示器平滑滚动
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            document.querySelector('#overview').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html> 

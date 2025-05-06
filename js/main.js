@@ -26,6 +26,39 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.vr-panorama-container')) {
         initVRPanorama();
     }
+
+    // 初始化AOS动画库
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
+
+    // 页面滚动时添加背景
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.glassmorphism-header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // 滚动指示器平滑滚动
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const target = document.querySelector('.py-6');
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+    
+    // 更新页面导航激活状态
+    updateActiveNavLink();
 });
 
 /**
@@ -309,4 +342,38 @@ function submitBooking(formId) {
             orderNumber.textContent = randomOrderId;
         }
     }
-} 
+}
+
+// 更新导航链接激活状态
+function updateActiveNavLink() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (currentPath.endsWith(href) || 
+            (currentPath.endsWith('/') && href === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// 获取当前天气（模拟）
+function updateWeather() {
+    const temperatures = [22, 23, 24, 25, 26, 27, 28];
+    const conditions = ['晴', '多云', '小雨', '阵雨', '晴转多云'];
+    
+    const randomTemp = temperatures[Math.floor(Math.random() * temperatures.length)];
+    const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
+    
+    const tempElement = document.getElementById('temperature');
+    const conditionElement = document.getElementById('weather-condition');
+    
+    if (tempElement) tempElement.textContent = `${randomTemp}°C`;
+    if (conditionElement) conditionElement.textContent = randomCondition;
+}
+
+// 页面加载完成后更新天气
+document.addEventListener('DOMContentLoaded', updateWeather); 
