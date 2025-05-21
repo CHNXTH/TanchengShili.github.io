@@ -409,13 +409,11 @@
         });
     </script>
     
-    <!-- Dify AI聊天助手集成 -->
+    <!-- Dify AI聊天助手集成 - 隐藏默认界面 -->
     <script>
      window.difyChatbotConfig = {
       token: 'V8Et4Bly4TgenDe4',
       systemVariables: {
-        // user_id: 'YOU CAN DEFINE USER ID HERE',
-        // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
       },
      }
     </script>
@@ -425,13 +423,574 @@
      defer>
     </script>
     <style>
+      /* 隐藏原始Dify按钮 */
       #dify-chatbot-bubble-button {
-        background-color: #1C64F2 !important;
+        display: none !important;
       }
       #dify-chatbot-bubble-window {
-        width: 24rem !important;
-        height: 40rem !important;
+        display: none !important;
       }
     </style>
+    
+    <!-- 自定义AI助手按钮和对话框 -->
+    <div id="ai-assistant-button" class="ai-assistant-button">
+        <img src="images/AIagent.png" alt="AI助手">
+    </div>
+    
+    <div id="ai-chat-dialog" class="ai-chat-dialog">
+        <div class="ai-chat-header">
+            <h4>十里渔歌AI智能体</h4>
+            <button id="ai-chat-close" class="ai-chat-close">×</button>
+        </div>
+        <div class="ai-chat-messages" id="ai-chat-messages">
+            <div class="ai-message bot">
+                <div class="ai-avatar">
+                    <img src="images/AIagent.png" alt="AI助手">
+                </div>
+                <div class="ai-bubble">
+                    嗨，你好！我是小郯儿，竭诚为您的十里渔歌之旅出谋划策。
+                </div>
+            </div>
+        </div>
+        <div class="ai-quick-questions">
+            <button class="ai-quick-btn" data-question="有哪些特色景点推荐?">有哪些特色景点推荐?</button>
+            <button class="ai-quick-btn" data-question="我们一家三口，准备玩两天，可以怎么规划行程?">我们一家三口，准备玩两天，可以怎么规划行程?</button>
+            <button class="ai-quick-btn" data-question="我想要了解项目背后的故事，听说是用遗传算法生成的?">我想要了解项目背后的故事，听说是用遗传算法生成的?</button>
+        </div>
+        <div class="ai-chat-input">
+            <input type="text" id="ai-user-input" placeholder="发送消息...">
+            <button id="ai-send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+    <style>
+        /* AI助手按钮样式 */
+        .ai-assistant-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 3px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .ai-assistant-button::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(45deg, #FF5F6D, #FFC371, #38ef7d, #21D4FD, #B721FF);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: rotate 4s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .ai-assistant-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        
+        /* 对话框样式 */
+        .ai-chat-dialog {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 380px;
+            height: 600px;
+            border-radius: 20px;
+            display: none;
+            flex-direction: column;
+            z-index: 1001;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .ai-chat-dialog::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 3px;
+            background: linear-gradient(45deg, #0061ff, #60efff, #21D4FD, #B721FF, #FF5F6D, #FFC371, #38ef7d);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .ai-chat-header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #FF8C00, #FF5F6D);
+            color: white;
+        }
+        
+        .ai-chat-header h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .ai-chat-close {
+            background: none;
+            border: none;
+            font-size: 28px;
+            line-height: 1;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0;
+        }
+        
+        .ai-chat-close:hover {
+            color: white;
+        }
+        
+        .ai-chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            background-color: #f8f9fa;
+        }
+        
+        .ai-message {
+            margin-bottom: 16px;
+            display: flex;
+            max-width: 90%;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .ai-message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+        
+        .ai-message.bot {
+            align-self: flex-start;
+        }
+        
+        .ai-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 8px;
+            flex-shrink: 0;
+        }
+        
+        .ai-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .ai-bubble {
+            background: white;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .ai-message.user .ai-bubble {
+            background: #6b5eff;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .ai-message.bot .ai-bubble {
+            background: #f0f0f0;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .ai-quick-questions {
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background-color: white;
+            border-top: 1px solid #eee;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+        
+        .ai-quick-btn {
+            border: 1px solid #ddd;
+            background: #f8f9fa;
+            border-radius: 18px;
+            padding: 8px 14px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: normal;
+            text-align: left;
+        }
+        
+        .ai-quick-btn:hover {
+            background: #e9ecef;
+            border-color: #ced4da;
+        }
+        
+        .ai-chat-input {
+            padding: 15px;
+            display: flex;
+            border-top: 1px solid #eee;
+            background-color: white;
+        }
+        
+        .ai-chat-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            outline: none;
+            font-size: 14px;
+        }
+        
+        .ai-chat-input input:focus {
+            border-color: #6b5eff;
+            box-shadow: 0 0 0 2px rgba(107, 94, 255, 0.1);
+        }
+        
+        .ai-chat-input button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #6b5eff;
+            border: none;
+            color: white;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        .ai-chat-input button:hover {
+            background: #5a4cdb;
+            transform: scale(1.05);
+        }
+        
+        .ai-chat-input button svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .ai-typing {
+            display: flex;
+            padding: 8px 12px;
+            align-items: center;
+            min-height: 24px;
+        }
+        
+        .ai-typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #666;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: typing 1s infinite ease-in-out;
+        }
+        
+        .ai-typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .ai-typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化AI助手
+            const aiButton = document.getElementById('ai-assistant-button');
+            const aiDialog = document.getElementById('ai-chat-dialog');
+            const closeBtn = document.getElementById('ai-chat-close');
+            const sendBtn = document.getElementById('ai-send-btn');
+            const userInput = document.getElementById('ai-user-input');
+            const messagesContainer = document.getElementById('ai-chat-messages');
+            const quickButtons = document.querySelectorAll('.ai-quick-btn');
+            
+            // Dify配置
+            const DIFY_API_URL = 'https://api.dify.ai/v1/chat-messages';
+            const API_KEY = 'app-Hwx0AiBZpEmPbffK84pHbx2X';
+            let conversationId = null;
+            
+            // 打开对话框
+            aiButton.addEventListener('click', function() {
+                aiDialog.style.display = 'flex';
+                aiDialog.style.opacity = '1';
+                aiDialog.style.pointerEvents = 'auto';
+                scrollToBottom();
+            });
+            
+            // 关闭对话框
+            closeBtn.addEventListener('click', function() {
+                aiDialog.style.display = 'none';
+                aiDialog.style.opacity = '0';
+                aiDialog.style.pointerEvents = 'none';
+            });
+            
+            // 发送消息
+            sendBtn.addEventListener('click', sendMessage);
+            
+            // 按Enter发送消息
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // 快速问题点击
+            quickButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const question = this.getAttribute('data-question');
+                    userInput.value = question;
+                    sendMessage();
+                });
+            });
+            
+            // 发送消息到Dify
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (!message) return;
+                
+                // 添加用户消息到聊天界面
+                addMessage(message, 'user');
+                userInput.value = '';
+                
+                // 显示正在输入指示器
+                showTypingIndicator();
+                
+                // 调用Dify API
+                fetch(DIFY_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${API_KEY}`,
+                        'Accept': 'text/event-stream'
+                    },
+                    body: JSON.stringify({
+                        query: message,
+                        response_mode: 'streaming',
+                        conversation_id: conversationId,
+                        user: 'user'
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('API响应错误: ' + response.status);
+                    }
+                    
+                    const reader = response.body.getReader();
+                    let botMessage = '';
+                    let responseStarted = false;
+                    let botMessageElement = null;
+                    
+                    // 移除输入指示器
+                    removeTypingIndicator();
+                    
+                    function readStream() {
+                        return reader.read().then(({ done, value }) => {
+                            if (done) return;
+                            
+                            // 解析SSE数据
+                            const text = new TextDecoder().decode(value);
+                            const eventChunks = text.split('\n\n').filter(chunk => chunk.trim());
+                            
+                            eventChunks.forEach(chunk => {
+                                if (!chunk.startsWith('data:')) return;
+                                
+                                try {
+                                    const jsonStr = chunk.slice(5);
+                                    if (!jsonStr.trim()) return;
+                                    
+                                    const json = JSON.parse(jsonStr);
+                                    
+                                    // 保存会话ID
+                                    if (json.conversation_id && !conversationId) {
+                                        conversationId = json.conversation_id;
+                                    }
+                                    
+                                    if (json.event === 'message') {
+                                        if (!responseStarted) {
+                                            responseStarted = true;
+                                            botMessage = json.answer || '';
+                                            botMessageElement = addMessage(botMessage, 'bot');
+                                        } else {
+                                            botMessage += json.answer || '';
+                                            updateMessage(botMessageElement, botMessage);
+                                        }
+                                    }
+                                    
+                                    // 处理流式消息结束
+                                    if (json.event === 'message_end') {
+                                        scrollToBottom();
+                                    }
+                                } catch (e) {
+                                    console.error('解析SSE数据错误:', e, chunk);
+                                }
+                            });
+                            
+                            return readStream();
+                        }).catch(error => {
+                            console.error('Stream读取错误:', error);
+                            if (!responseStarted) {
+                                addMessage('抱歉，我暂时无法回答您的问题。请稍后再试。', 'bot');
+                            }
+                        });
+                    }
+                    
+                    return readStream();
+                })
+                .catch(error => {
+                    console.error('API调用错误:', error);
+                    removeTypingIndicator();
+                    addMessage('抱歉，我暂时无法回答您的问题。请稍后再试。', 'bot');
+                });
+            }
+            
+            // 添加消息到聊天界面
+            function addMessage(text, type) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `ai-message ${type}`;
+                
+                const avatarDiv = document.createElement('div');
+                avatarDiv.className = 'ai-avatar';
+                
+                const avatarImg = document.createElement('img');
+                if (type === 'bot') {
+                    avatarImg.src = 'images/AIagent.png';
+                    avatarImg.alt = 'AI助手';
+                } else {
+                    avatarImg.src = 'https://via.placeholder.com/40?text=U';
+                    avatarImg.alt = '用户';
+                }
+                
+                avatarDiv.appendChild(avatarImg);
+                
+                const bubbleDiv = document.createElement('div');
+                bubbleDiv.className = 'ai-bubble';
+                bubbleDiv.textContent = text;
+                
+                messageDiv.appendChild(avatarDiv);
+                messageDiv.appendChild(bubbleDiv);
+                
+                messagesContainer.appendChild(messageDiv);
+                scrollToBottom();
+                
+                return bubbleDiv; // 返回气泡元素用于后续更新
+            }
+            
+            // 更新消息内容
+            function updateMessage(element, text) {
+                if (element) {
+                    element.textContent = text;
+                    scrollToBottom();
+                }
+            }
+            
+            // 显示正在输入指示器
+            function showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'ai-message bot ai-typing-indicator';
+                typingDiv.id = 'typing-indicator';
+                
+                const avatarDiv = document.createElement('div');
+                avatarDiv.className = 'ai-avatar';
+                
+                const avatarImg = document.createElement('img');
+                avatarImg.src = 'images/AIagent.png';
+                avatarImg.alt = 'AI助手';
+                avatarDiv.appendChild(avatarImg);
+                
+                const typingBubble = document.createElement('div');
+                typingBubble.className = 'ai-bubble ai-typing';
+                
+                for (let i = 0; i < 3; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'ai-typing-dot';
+                    typingBubble.appendChild(dot);
+                }
+                
+                typingDiv.appendChild(avatarDiv);
+                typingDiv.appendChild(typingBubble);
+                
+                messagesContainer.appendChild(typingDiv);
+                scrollToBottom();
+            }
+            
+            // 移除输入指示器
+            function removeTypingIndicator() {
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) {
+                    indicator.remove();
+                }
+            }
+            
+            // 滚动到底部
+            function scrollToBottom() {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+            
+            // 确保聊天窗口可点击
+            aiDialog.addEventListener('click', function(e) {
+                e.stopPropagation(); // 防止点击传播到其他元素
+            });
+        });
+    </script>
 </body>
 </html> 
